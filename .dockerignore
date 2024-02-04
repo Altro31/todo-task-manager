@@ -1,0 +1,16 @@
+# Env
+.env
+
+# Next.js
+.next
+
+# Dependencies
+# node_modules
+
+# Docker
+.dockerignore
+Dockerfile
+docker-compose.yml
+
+# Git
+.git

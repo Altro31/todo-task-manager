@@ -1,0 +1,31 @@
+generator client {
+  provider = "prisma-client-js"
+  binaryTargets = ["native"]
+}
+
+datasource db {
+  provider = "mongodb"
+  url      = env("MONGODB_URI")
+}
+
+model User {
+  name         String  @unique @default("")
+  email        String  @id @map("_id")
+  password     String
+  phone_number String?
+  address      String?
+  photo        String?
+  todos        ToDo[]
+}
+
+model ToDo {
+  id          String   @id @default(cuid()) @map("_id")
+  title       String
+  description String?
+  date        DateTime @default(now())
+  hasTime     Boolean
+  done        Boolean? @default(false)
+  userEmail   String
+  User        User     @relation(fields: [userEmail], references: [email])
+  Tags        String[]
+}

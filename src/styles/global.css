@@ -1,0 +1,13 @@
+@tailwind base;
+
+*{
+    @apply tracking-tighter;
+}
+
+html, body {
+    @apply h-full max-h-screen;
+}
+
+@tailwind components;
+@tailwind utilities;
+
